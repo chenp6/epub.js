@@ -215,3 +215,14 @@ Follow us on twitter: @Epubjs
 ## Other
 
 EPUB is a registered trademark of the [IDPF](http://idpf.org/).
+## Windows / Node 17+ build note
+
+If you are building on Windows with a modern Node.js version and see
+`ERR_OSSL_EVP_UNSUPPORTED`, install `cross-env` and run the compile command with
+the legacy OpenSSL provider enabled:
+
+```cmd
+cd epub.js
+npm install --save-dev cross-env
+set NODE_OPTIONS=--openssl-legacy-provider && npm run compile
+```
